@@ -37,14 +37,16 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updateTextAligment() {
-        if isLTRLanguage {
-            textAlignment = .left
-            titleLabel.textAlignment = .left
-            errorLabel.textAlignment = .left
-        } else {
-            textAlignment = .right
-            titleLabel.textAlignment = .right
-            errorLabel.textAlignment = .right
+        if textAlignment == .left || textAlignment == .right {
+            if isLTRLanguage {
+                textAlignment = .left
+                titleLabel.textAlignment = .left
+                errorLabel.textAlignment = .left
+            } else {
+                textAlignment = .right
+                titleLabel.textAlignment = .right
+                errorLabel.textAlignment = .right
+            }
         }
 
         // Override error message default alignment
